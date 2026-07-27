@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+ <head>
+ <title>Ticket reservation system</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ </head>
+ <body>
+ <h1>Ticket Resevation System</h1>
+ <h2>Welcome To Ticket Reservation System</h2>
+ <p>we gonna create a design and implement a web page for a ticket reservation system using this 
+system you can reserve the ticket of bus,train</p>
+ <img src="img1.jpg" height='200px' width='300px'>
+ <h3>Features</h3>
+ <ol>
+ <li>scalable</li>
+ <li>affordable</li>
+ <li>5 star facilities</li>
+ <li>Ticket booking</li>
+ </ol>
+ <h3>Transport details</h3>
+ <table border="1">
+<tr>
+ <th>s.no</th>
+ <th>Name of vehicle</th>
+ <th>sourse</th>
+ <th>Destination</th>
+ <th>Depature time</th>
+ <th>Arrival Time</th>
+ <th>price per Ticket</th>
+ </tr>
+ <tr>
+ <td>1</td>
+ <td>guruvayur express</td>
+ <td>madurai</td>
+ <td>Guruvayur</td>
+ <td>7:00</td>
+ <td>1:00</td>
+ <td>100</td>
+ </tr>
+ <tr>
+ <td>2</td>
+ <td>sengottai express</td>
+ <td>madurai</td>
+ <td>Sengottai</td>
+ <td>7:20</td>
+ <td>10:00</td>
+ <td>75</td>
+ </tr>
+ <tr> <td>3</td>
+ <td>vande bharat express</td>
+ <td>chennai</td>
+ <td>mumbai</td>
+ <td>7:00</td>
+ <td>8:00</td>
+ <td>1000</td>
+ </tr>
+ <tr>
+ <td>4</td>
+ <td>Pandian express</td>
+ <td>madurai</td>
+ <td>chennai</td>
+ <td>10:00</td>
+ <td>6:00</td>
+ <td>190</td>
+ </tr>
+ <tr>
+ <td>5</td>
+ <td>vaigai express</td>
+ <td>madurai</td>
+ <td>chennai</td>
+ <td>7:00</td>
+ <td>3:00</td>
+ <td>100</td>
+ </tr>
+ <tr>
+ <td>6</td> <td>sengottai express</td>
+ <td>madurai</td>
+ <td>Sengottai</td>
+ <td>7:20</td>
+ <td>10:00</td>
+ <td>75</td>
+ </tr>
+ <tr>
+ <td>7</td>
+ <td>sengottai express</td>
+ <td>madurai</td>
+ <td>Sengottai</td>
+ <td>7:20</td>
+ <td>10:00</td>
+ <td>75</td>
+ </tr>
+ <tr>
+ <td>8</td>
+ <td>sengottai express</td>
+ <td>madurai</td>
+ <td>Sengottai</td>
+ <td>7:20</td>
+ <td>10:00</td>
+ <td>75</td>
+ </tr>
+ <tr>
+ <td>9</td>
+ <td>sengottai express</td> <td>madurai</td>
+ <td>Sengottai</td>
+ <td>7:20</td>
+ <td>10:00</td>
+ <td>75</td>
+ </tr>
+ <tr>
+ <td>10</td>
+ <td>andhyodhiya express</td>
+ <td>madurai</td>
+ <td>Sengottai</td>
+ <td>7:20</td>
+ <td>10:00</td>
+ <td>75</td>
+ </tr>
+ <tr>
+ </table>
+ <h2>Gallery</h2>
+ <table >
+ <tr>
+ <td><img src='images.jfif' height='200px' width='300px'></td>
+ <td><img src='img2.jfif' height='200px' width='300px'></td>
+ </tr>
+ <tr>
+ <td><img src='img3.jfif'height='200px' width='300px'></td>
+ <td><img src='img4.jfif' height='200px' width='300px'></td>
+ </tr> <tr>
+ <td><img src='img3.jfif'height='200px' width='300px'></td>
+ <td><img src='img4.jfif' height='200px' width='300px'></td>
+ </tr>
+ </table>
+ <h2>Booking Form</h2>
+ <form>
+ <label>Enter the name</label>
+ <input type="text" name="Enter the details">
+ <br>
+ <br>
+ <label>Enter the phno</label>
+ <input type="tel" name="ph no">
+ <br>
+ <br>
+ <label>Enter the mail</label>
+ <input type="email" name="Enter the mail">
+ <br>
+ <br>
+ <label>Arrival date</label>
+ <input type="date" name="Arrival Date">
+ <br>
+ <br>
+ <label>departure date</label>
+ <input type="date" name="departure date">
+ <br>
+ <br>
+ <input type="submit" name="submit"> </form>
+ </body>
+</html>
