@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>R.S Online Shopping Systems</title>
+</head>
+<body>
+ <h1 align="center">R.S Online Shopping Systems</h1>
+ <center><img src="logo.jpg" width="100" height="100"></center>
+ <hr>
+ <table width="100%" border="1" cellpadding="15">
+ <tr align="center">
+ <td><a href="home.html">Home</a></td>
+ <td><a href="menu.html">Product Menu</a></td>
+ <td><a href="product-details.html">Product Details</a></td>
+ <td><a href="form.html">Registration</a></td>
+ </tr>
+ </table>
+ <hr>
+ <h2 style="color:#2c3e50;">About Our Online Shopping System</h2>
+ <p style="font-style:italic; text-align:justify; font-size:18px; line-height:1.8; color:#34495e;">
+ R.S Online Shopping Systems is a modern electronic shopping platform that provides high-quality 
+technology products to customers. We offer advanced electronic gadgets with excellent performance 
+and reliability.
+ </p>
+ <p style="font-style:italic; text-align:justify; font-size:18px; line-height:1.8; color:#34495e;">
+ Our company was established to make electronic shopping simple, fast, and reliable for everyone. 
+Customers can easily browse products, compare features, and select the best technology solutions 
+according to their needs.
+ </p> <p style="font-style:italic; text-align:justify; font-size:18px; line-height:1.8; color:#34495e;">
+ We provide different categories of products such as laptops, smartphones, tablets, cameras, and 
+computer accessories. Each product is carefully selected to provide better quality and customer 
+satisfaction.
+ </p>
+ <p style="font-style:italic; text-align:justify; font-size:18px; line-height:1.8; color:#34495e;">
+ Our laptop collection includes professional laptops suitable for students, employees, and business 
+users. Our smartphones provide advanced features such as 5G technology, high-resolution cameras, and 
+long battery life.
+ </p>
+ <p style="font-style:italic; text-align:justify; font-size:18px; line-height:1.8; color:#34495e;">
+ We focus on customer satisfaction by providing quality products, reasonable prices, secure 
+purchasing options, and better customer service.
+ </p>
+ <h2>Available Products</h2>
+ <ul>
+ <li>Laptops</li>
+ <li>Smart Phones</li>
+ <li>Tablets</li>
+ <li>Wireless Mouse</li>
+ <li>Digital Cameras</li>
+ </ul>
+ <hr>
+ <center>&copy; 2026 R.S Online Shopping Systems</center>
+</body>
+</html>
+HOME PAGE
+<!DOCTYPE html>
+<html>
+<head> <title>Home</title>
+</head>
+<body style="background:linear-gradient(to right,#dff9fb,#c7ecee); font-family:Arial; margin:0; 
+padding:20px;">
+ <h1 style="text-align:center; color:#130f40; font-size:40px; text-shadow:2px 2px 5px gray;">R.S 
+Online Shopping Systems</h1>
+ <h2 style="text-align:center; color:#e84118;">Our Latest Products</h2>
+ <div style="display:flex; justify-content:center; gap:25px; flex-wrap:wrap;">
+ <!-- Laptop -->
+ <div style="background:white; width:280px; padding:20px; margin:10px; border:3px solid blue; 
+border-radius:20px; box-shadow:5px 5px 15px gray; text-align:center;">
+ <img src="laptops.webp" style="width:220px; height:160px; border-radius:15px;">
+ <h2 style="color:blue;">Laptop</h2>
+ <p style="text-align:justify; font-size:16px;">Model: ProBook 2023 Edition<br>Processor: Core 
+i7<br>RAM: 16GB<br>Storage: 512GB SSD<br>Suitable for students and professionals.</p>
+ <h3 style="color:red; text-decoration:line-through;">Original Price: Rs.75000</h3>
+ <h2 style="background:#2ecc71; color:white; padding:10px; border-radius:10px;">Offer Price: 
+Rs.65000</h2>
+ </div>
+ <!-- Mobile -->
+ <div style="background:white; width:280px; padding:20px; margin:10px; border:3px solid green; 
+border-radius:20px; box-shadow:5px 5px 15px gray; text-align:center;">
+ <img src="phone.jpg" style="width:220px; height:160px; border-radius:15px;">
+ <h2 style="color:green;">Smart Phone</h2>
+ <p style="text-align:justify; font-size:16px;">Model: Smart Phone 5G Ultra<br>Camera: 
+108MP<br>Battery: 5000mAh<br>Network: 5G Support<br>High performance for daily use.</p>
+ <h3 style="color:red; text-decoration:line-through;">Original Price: Rs.30000</h3>
+ <h2 style="background:#2ecc71; color:white; padding:10px; border-radius:10px;">Offer Price: 
+Rs.25000</h2>
+ </div>
+ <!-- Tablet --> <div style="background:white; width:280px; padding:20px; margin:10px; border:3px solid orange; 
+border-radius:20px; box-shadow:5px 5px 15px gray; text-align:center;">
+ <img src="tab.jpg" style="width:220px; height:160px; border-radius:15px;">
+ <h2 style="color:orange;">Tablet</h2>
+ <p style="text-align:justify; font-size:16px;">Model: TabPro 10-inch Display<br>Processor: Octa 
+Core<br>Feature: Stylus Support<br>Light weight design and powerful performance.</p>
+ <h3 style="color:red; text-decoration:line-through;">Original Price: Rs.18000</h3>
+ <h2 style="background:#2ecc71; color:white; padding:10px; border-radius:10px;">Offer Price: 
+Rs.15000</h2>
+ </div>
+ <!-- Mouse -->
+ <div style="background:white; width:280px; padding:20px; margin:10px; border:3px solid purple; 
+border-radius:20px; box-shadow:5px 5px 15px gray; text-align:center;">
+ <img src="mouse.jpg" style="width:220px; height:160px; border-radius:15px;">
+ <h2 style="color:purple;">Wireless Mouse</h2>
+ <p style="text-align:justify; font-size:16px;">Model: Silent Optical Mouse<br>Connection: 2.4GHz 
+Wireless<br>Design: Ergonomic<br>Comfortable for office and gaming use.</p>
+ <h3 style="color:red; text-decoration:line-through;">Original Price: Rs.1000</h3>
+ <h2 style="background:#2ecc71; color:white; padding:10px; border-radius:10px;">Offer Price: 
+Rs.800</h2>
+ </div>
+ <!-- Camera -->
+ <div style="background:white; width:280px; padding:20px; margin:10px; border:3px solid red; 
+border-radius:20px; box-shadow:5px 5px 15px gray; text-align:center;">
+ <img src="cam.jpg" style="width:220px; height:160px; border-radius:15px;">
+ <h2 style="color:red;">Digital Camera</h2>
+ <p style="text-align:justify; font-size:16px;">Model: DSLR 4K Professional<br>Camera: 24.2 
+MP<br>Video: 4K Recording<br>Perfect for photography and video creation.</p>
+ <h3 style="color:red; text-decoration:line-through;">Original Price: Rs.50000</h3>
+ <h2 style="background:#2ecc71; color:white; padding:10px; border-radius:10px;">Offer Price: 
+Rs.45000</h2>
+ </div> </div>
+ <br>
+ <center><a href="index.html"><button style="padding:12px; background:#6c5ce7; color:white; 
+border:none; border-radius:10px; font-size:16px; cursor:pointer;">Back Home</button></a></center>
+</body>
+</html>
+MENU PAGE
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Product Menu</title>
+ <style>
+ body{ background:#fff7e6; font-family:Verdana; margin:20px; }
+ h1{ text-align:center; color:#d35400; font-size:40px; }
+ .container{ display:flex; justify-content:center; gap:25px; flex-wrap:wrap; }
+ .card{ background:white; width:220px; padding:20px; border:3px solid orange; border-radius:20px; 
+text-align:center; box-shadow:5px 5px 15px gray; transition: 0.3s; }
+ .card:hover{ transform:scale(1.08); background:#ffeaa7; }
+ .card img{ width:180px; height:150px; border-radius:15px; }
+ .price{ color:red; font-size:20px; font-weight:bold; }
+ a{ text-decoration:none; color:blue; font-size:18px; }
+ </style>
+</head>
+<body>
+ <h1>Product Menu</h1>
+ <div class="container">
+ <div class="card"><img src="laptops.webp"><h2>Laptop</h2><p class="price">Rs.65000</p><a 
+href="product-details.html#laptop">View Details</a></div>
+ <div class="card"><img src="phone.jpg"><h2>Mobile</h2><p class="price">Rs.25000</p><a 
+href="product-details.html#phone">View Details</a></div> <div class="card"><img src="tab.jpg"><h2>Tablet</h2><p class="price">Rs.15000</p><a 
+href="product-details.html#tablet">View Details</a></div>
+ <div class="card"><img src="mouse.jpg"><h2>Mouse</h2><p class="price">Rs.800</p><a 
+href="product-details.html#mouse">View Details</a></div>
+ <div class="card"><img src="cam.jpg"><h2>Camera</h2><p class="price">Rs.45000</p><a 
+href="product-details.html#camera">View Details</a></div>
+ </div>
+</body>
+</html>
+DETAIL PAGE
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Product Details</title>
+ <link rel="stylesheet" href="style.css">
+ <style>
+ .products { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+ .box { border: 1px solid #ccc; padding: 15px; width: 300px; border-radius: 10px; }
+ .offer { color: green; font-size: 18px; }
+ img { width: 100%; height: auto; border-radius: 10px; }
+ </style>
+</head>
+<body>
+ <h1 align="center">Product Details</h1>
+ <div class="products">
+ <!-- Laptop Details -->
+ <div class="box" id="laptop">
+ <img src="laptops.webp"><h2>Laptop</h2><h3>Available Brands</h3>
+ <p><b>HP:</b> i7, 16GB RAM, 512GB SSD - Rs.65000</p>
+ <p><b>Dell:</b> i5, 16GB RAM, 512GB SSD - Rs.60000</p> <p><b>Lenovo:</b> i7, 8GB RAM, 512GB SSD - Rs.58000</p>
+ <h2 class="offer">Offers Available</h2>
+ </div>
+ <!-- Mobile Details -->
+ <div class="box" id="phone">
+ <img src="phone.jpg"><h2>Mobile Phone</h2><h3>Available Brands</h3>
+ <p><b>Samsung Galaxy:</b> 108MP, 5000mAh - Rs.30000</p>
+ <p><b>Apple iPhone:</b> 48MP, A-Series - Rs.70000</p>
+ <p><b>OnePlus:</b> 50MP, Fast Charge - Rs.35000</p>
+ <h2 class="offer">Offers Available</h2>
+ </div>
+ <!-- Tablet Details -->
+ <div class="box" id="tablet">
+ <img src="tab.jpg"><h2>Tablet</h2><h3>Available Brands</h3>
+ <p><b>Samsung Tab:</b> 10 inch, Octa Core - Rs.25000</p>
+ <p><b>Apple iPad:</b> A-Series, Stylus - Rs.45000</p>
+ <p><b>Lenovo Tab:</b> 8GB RAM, 128GB - Rs.20000</p>
+ <h2 class="offer">Offers Available</h2>
+ </div>
+ <!-- Mouse Details -->
+ <div class="box" id="mouse">
+ <img src="mouse.jpg"><h2>Mouse</h2><h3>Available Brands</h3>
+ <p><b>Logitech:</b> Wireless, Silent - Rs.1200</p>
+ <p><b>HP Mouse:</b> 2.4GHz Wireless - Rs.1000</p>
+ <p><b>Dell Mouse:</b> Optical, Comfort - Rs.900</p>
+ <h2 class="offer">Offers Available</h2>
+ </div>
+ <!-- Camera Details -->
+ <div class="box" id="camera"> <img src="cam.jpg"><h2>Camera</h2><h3>Available Brands</h3>
+ <p><b>Canon DSLR:</b> 24.2MP, 4K - Rs.45000</p>
+ <p><b>Nikon:</b> 26MP, Professional - Rs.50000</p>
+ <p><b>Sony:</b> Mirrorless, 4K - Rs.55000</p>
+ <h2 class="offer">Offers Available</h2>
+ </div>
+ </div>
+ <br><center><a href="index.html">Back Home</a></center>
+</body>
+</html>
+FORM PAGE
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Customer Registration Form</title>
+</head>
+<body bgcolor="#f0f8ff">
+ <h1 align="center">R.S Online Shopping Systems</h1>
+ <h2 align="center">Customer Purchase Form</h2>
+ <form>
+ <table border="1" cellpadding="10" align="center">
+ <tr><td>Name</td><td><input type="text" name="name" placeholder="Enter your 
+name"></td></tr>
+ <tr><td>Date of Birth</td><td><input type="date" name="dob"></td></tr>
+ <tr><td>Email</td><td><input type="email" name="email" placeholder="Enter 
+email"></td></tr>
+ <tr><td>Phone Number</td><td><input type="tel" name="phone" placeholder="Enter phone 
+number"></td></tr>
+ <tr><td>Product</td><td>
+ <select name="product"> <option>Select Product</option><option>Laptop</option><option>Mobile Phone</option>
+ <option>Tablet</option><option>Wireless Mouse</option><option>Camera</option>
+ </select>
+ </td></tr>
+ <tr><td>Quantity</td><td><input type="number" name="quantity" min="1"></td></tr>
+ <tr><td>Price</td><td><input type="number" name="price" placeholder="Enter 
+price"></td></tr>
+ <tr><td>Location</td><td>
+ <select name="location">
+ <optgroup label="Tamil 
+Nadu"><option>Madurai</option><option>Theni</option><option>Chennai</option><option>Coimbat
+ore</option></optgroup>
+ <optgroup 
+label="Kerala"><option>Kochi</option><option>Varakal</option><option>Trivandrum</option></optgr
+oup>
+ <optgroup 
+label="Karnataka"><option>Bangalore</option><option>Mysore</option></optgroup>
+ </select>
+ </td></tr>
+ <tr><td>Address</td><td><textarea rows="4" cols="30" placeholder="Enter 
+address"></textarea></td></tr>
+ <tr><td colspan="2" align="center"><input type="submit" value="Buy Now"> <input type="reset" 
+value="Clear"></td></tr>
+ </table>
+ </form>
+ <br><center><a href="index.html">Back Home</a></center>
+</body>
+</html>
