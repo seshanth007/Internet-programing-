@@ -1,0 +1,267 @@
+Index.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Details Form</title>
+<style>
+body {
+ font-family: 'Playfair Display', Georgia, serif;
+ background: linear-gradient(135deg,#fdfbf7,#f4eee1);
+ margin: 0;
+ padding: 40px 20px;
+ color: #2b2b2b;
+}
+h2 {
+ text-align: center;
+ color: #644516;
+ font-size: 28px;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ margin-bottom: 30px;
+}
+form {
+ max-width: 520px;
+ margin: auto;
+ background: white;
+ padding: 35px; border-radius: 12px;
+ border: 1px solid #e3d5c6;
+ box-shadow: 0 10px 30px rgba(91,62,49,0.08);
+}
+label {
+ display: block;
+ margin-bottom: 6px;
+ font-size: 13px;
+ font-weight: bold;
+ letter-spacing: 1px;
+ color: #6b5b52;
+ text-transform: uppercase;
+}
+input[type=text],
+input[type=number],
+input[type=date],
+input[type=tel],
+input[type=email],
+textarea,
+select{
+ width:100%;
+ padding:12px;
+ border:1px solid #dcd6cd;
+ border-radius:6px;
+ background:#faf9f6;
+ box-sizing:border-box;
+ margin-bottom:20px;
+ font-size:15px; }
+input:focus,
+textarea:focus,
+select:focus{
+ outline:none;
+ border-color:#a3704c;
+ box-shadow:0 0 5px rgba(163,112,76,0.3);
+ background:white;
+}
+textarea{
+ resize:vertical;
+}
+.radio-group{
+ margin-bottom:20px;
+}
+.radio-group input{
+ margin-right:6px;
+}
+.radio-group label{
+ display:inline;
+ text-transform:none;
+ margin-right:20px;
+}
+button{
+ width:100%;
+ padding:14px;
+ background:linear-gradient(135deg,#a3704c,#825435);
+ color:white; border:none;
+ border-radius:6px;
+ font-size:16px;
+ font-weight:bold;
+ cursor:pointer;
+ letter-spacing:1px;
+}
+button:hover{
+ opacity:.95;
+}
+</style>
+</head>
+<body>
+<h2>Personal Details Form</h2>
+<form id="personalForm">
+<label>Full Name:</label>
+<input type="text" id="fullname" required>
+<label>Age:</label>
+<input type="number" id="age" min="1" max="120" required>
+<label>Gender:</label>
+<div class="radio-group">
+<input type="radio" id="male" name="gender" value="Male">
+<label for="male">Male</label>
+<input type="radio" id="female" name="gender" value="Female">
+<label for="female">Female</label>
+<input type="radio" id="other" name="gender" value="Other">
+<label for="other">Other</label>
+</div> <label>Date of Birth:</label>
+<input type="date" id="dob" required>
+<label>Address:</label>
+<textarea id="address" rows="3" required></textarea>
+<label>Phone Number:</label>
+<input type="tel" id="phone" maxlength="10" required>
+<label>Email:</label>
+<input type="email" id="email" placeholder="example@gmail.com" required>
+<label>Education:</label>
+<select id="education" required>
+<option value="">Select your education</option>
+<option>SSLC</option>
+<option>HSC</option>
+<option>Diploma</option>
+<option>B.Sc</option>
+<option>B.Com</option>
+<option>BCA</option>
+<option>B.E</option>
+<option>B.Tech</option>
+<option>M.Sc</option>
+<option>MCA</option>
+<option>M.E</option>
+<option>M.Tech</option>
+<option>MBA</option>
+</select>
+<label>Skills:</label>
+<textarea id="skills" rows="2" placeholder="Example: HTML, CSS, JavaScript"></textarea>
+<label>Blood Group:</label>
+<select id="bloodgroup" required>
+<option value="">Select your blood group</option>
+<option>A+</option>
+<option>A-</option>
+<option>B+</option>
+<option>B-</option>
+<option>AB+</option>
+<option>AB-</option>
+<option>O+</option>
+<option>O-</option>
+<option>Bombay</option>
+</select>
+<button type="submit">Submit</button>
+</form>
+<script>
+document.getElementById("personalForm").addEventListener("submit",function(event)
+{
+event.preventDefault();
+let fullname=document.getElementById("fullname").value.trim();
+let age=document.getElementById("age").value;
+let dob=document.getElementById("dob").value;
+let address=document.getElementById("address").value.trim();
+let phone=document.getElementById("phone").value.trim();
+let email=document.getElementById("email").value.trim();
+let education=document.getElementById("education").value;
+let skills=document.getElementById("skills").value.trim(); let bloodgroup=document.getElementById("bloodgroup").value;
+let gender=document.querySelector('input[name="gender"]:checked');
+if(fullname==""){
+alert("Please enter your full name.");
+return;
+}
+if(age<1 || age>120){
+alert("Please enter a valid age.");
+return;
+}
+if(!gender){
+alert("Please select your gender.");
+return;
+}
+let phonePattern=/^[0-9]{10}$/;
+if(!phonePattern.test(phone)){
+alert("Please enter a valid 10-digit phone number.");
+return;
+}
+let emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if(!emailPattern.test(email)){
+alert("Please enter a valid email address.");
+return;
+}
+alert(
+"Form Submitted Successfully!\n\n"+
+"Name : "+fullname+ "\nAge : "+age+
+"\nGender : "+gender.value+
+"\nDate of Birth : "+dob+
+"\nAddress : "+address+
+"\nPhone : "+phone+
+"\nEmail : "+email+
+"\nEducation : "+education+
+"\nSkills : "+skills+
+"\nBlood Group : "+bloodgroup
+);
+document.getElementById("personalForm").reset();
+window.location.href="success.html";
+});
+</script>
+</body>
+</html>
+
+Success.html :
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Submitted</title>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box; font-family:Arial, Helvetica, sans-serif;
+}
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(135deg,#fffaf2,#ffd49c);
+}
+.container{
+background:#fff;
+padding:40px;
+width:400px;
+text-align:center;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+.check{
+font-size:70px;
+color:#7a5c23;
+margin-bottom:20px;
+}
+h1{
+color:#7e5820;
+margin-bottom:15px;
+}
+p{
+color:#555; font-size:18px;
+margin-bottom:25px;
+}
+a{
+display:inline-block;
+text-decoration:none;
+background:#805e00;
+color:white;
+padding:12px 25px;
+border-radius:6px;
+transition:0.3s;
+}
+a:hover{
+background:#80611e;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="check"></div>
+<h1>Form Submitted Successfully</h1>
+<a href="index.html">Go Back</a>
+</div>
+</body>
+</html>
