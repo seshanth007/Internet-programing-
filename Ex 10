@@ -1,0 +1,69 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Registration</title>
+</head>
+<body>
+ <form action="register.php" method="POST" novalidate>
+ <h2>Register</h2>
+ <label>Username: <input type="text" name="username" required></label><br><br>
+ <label>Email: <input type="email" name="email" required></label><br><br> 
+ <label>Password: <input type="password" name="password" required></label><br><br> 
+ <label>Course Code: <input type="text" name="course_code" placeholder="PHP-101" 
+required></label><br><br>
+ <label>Phone Number: <input type="text" name="phone" placeholder="+1234567890" 
+required></label><br><br>
+ <label>Role: 
+ <select name="role" required>
+ <option value="">Select Role</option>
+ <option value="student">Student</option>
+ <option value="teacher">Teacher</option>
+ </select>
+ </label><br><br>
+ <input type="submit" value="Register">
+ </form>
+</body>
+</html> Register.php
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+ $username = trim($_POST['username'] ?? '');
+ $email = trim($_POST['email'] ?? '');
+ $password = $_POST['password'] ?? '';
+ $course_code = trim($_POST['course_code'] ?? '');
+ $phone = trim($_POST['phone'] ?? '');
+ $role = trim($_POST['role'] ?? '');
+ $errors = [];
+ if (!preg_match("/^[a-zA-Z0-9_]{3,20}$/", $username)) {
+ $errors[] = "Invalid username.";
+ }
+ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+ $errors[] = "Invalid email.";
+ }
+ if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/", $password)) {
+ $errors[] = "Invalid password.";
+ }
+ if (!preg_match("/^[A-Z]{3}-\d{3}$/", $course_code)) {
+ $errors[] = "Invalid course code.";
+ }
+ if (!preg_match("/^\+\d{10}$/", $phone)) {
+ $errors[] = "Invalid phone number (must start with '+' followed by 10-15 digits).";
+ }
+ if (!in_array($role, ['student', 'teacher'])) {
+ $errors[] = "Please select a valid role.";
+ }
+ if (!empty($errors)) {
+ foreach ($errors as $error) {
+ echo "<p style='color:red;'>$error</p>";
+ }
+ echo '<br><a href="index.html">&laquo; Go Back</a>';
+ } else {
+ echo "<h3 style='color:green;'>Registration Successful!</h3>";
+ echo "<p>Welcome, " . htmlspecialchars($username) . " (" . htmlspecialchars($role) . ")!</p>";
+ }
+} else {
+ header("Location: index.html");
+ exit();
+}
+?>
