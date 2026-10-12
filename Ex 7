@@ -1,0 +1,155 @@
+Index.html
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Company Details</title>
+</head>
+<body>
+<h2>Session Tracking Using Servlet</h2>
+<form action="Servlet1" method="post">
+   Company Name:
+   <input type="text" name="compName" required>
+   <br><br>
+   Established Year:
+   <input type="text" name="compEst" required>
+   <br><br>
+   Type:
+   <input type="text" name="compType" required>
+   <br><br>
+   Industry:
+   <input type="text" name="compIndustry" required>
+   <br><br>
+   Employees:
+   <input type="text" name="compEmployees" required>
+   <br><br>
+   Email:
+   <input type="text" name="compMail" required>
+   <br><br>
+   City:
+   <input type="text" name="compCity" required>
+   <br><br>
+   <input type="submit" value="Submit">
+</form>
+</body>
+</html>
+servelant1.java
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+@WebServlet("/Servlet1")
+public class Servlet1 extends HttpServlet {
+    // A simple in-memory map to track submission counts across sessions by company name
+   private static final Map<String, Integer> nameCountMap = new HashMap<>();
+ protected void doPost(HttpServletRequest request, HttpServletResponse response)
+           throws ServletException, IOException {
+       response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        String name = request.getParameter("compName");
+        String est = request.getParameter("compEst");
+        String type = request.getParameter("compType");
+        String industry = request.getParameter("compIndustry");
+        String employees = request.getParameter("compEmployees");
+        String email = request.getParameter("compMail");
+        String city = request.getParameter("compCity");
+         HttpSession session = request.getSession();
+        synchronized (nameCountMap) {
+            int count = nameCountMap.getOrDefault(name, 0) + 1;
+            nameCountMap.put(name, count);
+            // Store the count in the session
+            session.setAttribute("companySessionCount", count);
+        }
+       out.println("<html>");
+        out.println("<body>");
+        out.println("<h2>Welcome, " + name + "</h2>");
+        out.println("<p>Choose a Session Tracking Method:</p>");
+        // 1. Hidden Form Field (Points to Servlet3)
+        out.println("<form action='Servlet3' method='post'>");
+        out.println("<input type='hidden' name='compName' value='" + name + "'>");
+        out.println("<input type='hidden' name='compEst' value='" + est + "'>");
+        out.println("<input type='hidden' name='compType' value='" + type + "'>");
+        out.println("<input type='hidden' name='compIndustry' value='" + industry + "'>");
+        out.println("<input type='hidden' name='compEmployees' value='" + employees + "'>");
+        out.println("<input type='hidden' name='compMail' value='" + email + "'>");
+        out.println("<input type='hidden' name='compCity' value='" + city + "'>");
+        out.println("<input type='submit' value='Visit using Hidden Fields'>");
+        out.println("</form>");
+        out.println("<br>");
+        // 2. URL Rewriting (Points to Servlet3 via GET request)
+        out.println("<a href='Servlet3"
+                + "?compName=" + name
+                + "&compEst=" + est
+                + "&compType=" + type
+                + "&compIndustry=" + industry
+                + "&compEmployees=" + employees
+                + "&compMail=" + email
+                + "&compCity=" + city
+                + "'>");
+        out.println("Visit using URL Rewriting");
+        out.println("</a>");
+        out.println("</body>");
+        out.println("</html>");
+   }
+}
+servelant3.java
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet("/Servlet3")
+public class Servlet3 extends HttpServlet {
+   protected void doPost(HttpServletRequest request, HttpServletResponse response)
+           throws ServletException, IOException {
+        displayDetails(request, response);
+   } 
+   protected void doGet(HttpServletRequest request, HttpServletResponse response)
+           throws ServletException, IOException {
+        displayDetails(request, response);
+   }
+   private void displayDetails(HttpServletRequest request, HttpServletResponse response)
+           throws IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        
+        String name = request.getParameter("compName");
+        String est = request.getParameter("compEst");
+        String type = request.getParameter("compType");
+        String industry = request.getParameter("compIndustry");
+        String employees = request.getParameter("compEmployees");
+        String email = request.getParameter("compMail");
+        String city = request.getParameter("compCity");
+        
+        // Retrieve submission count from session
+        HttpSession session = request.getSession(false);
+        int count = 1;
+        if (session != null && session.getAttribute("companySessionCount") != null) {
+            count = (int) session.getAttribute("companySessionCount");
+        }
+        out.println("<html>");
+        out.println("<body>");
+        out.println("<h2>Company Details</h2>");
+        out.println("Company Name: " + name + "<br><br>");
+        out.println("Established Year: " + est + "<br><br>");
+        out.println("Type: " + type + "<br><br>");
+        out.println("Industry: " + industry + "<br><br>");
+        out.println("Employees: " + employees + "<br><br>");
+        out.println("Email: " + email + "<br><br>");
+        out.println("City: " + city + "<br><br>");
+        
+        // Display the submission count
+        out.println("<h3>Submission Count for " + name + ": " + count + "</h3>");
+        out.println("<h3>Session Tracking Successful!</h3>");
+        out.println("</body>");
+        out.println("</html>");
+
