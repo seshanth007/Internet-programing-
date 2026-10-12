@@ -1,0 +1,210 @@
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Ticket Booking System</title>
+ <meta charset="UTF-8">
+ <style>
+ * {
+ box-sizing: border-box;
+ font-family: Arial, sans-serif;
+ }
+ body {
+ margin: 0;
+ background: #f4f6f8;
+ }
+ .header {
+ background: #2563eb;
+ color: white;
+ padding: 18px 10%;
+ font-size: 22px;
+ font-weight: bold;
+ }
+ .container {
+ width: 400px;
+ margin: 60px auto;
+ background: white;
+ padding: 30px;
+ border-radius: 10px;
+ box-shadow: 0 4px 15px #ccc;
+ }
+ h2 {
+ text-align: center;
+ margin-top: 0;
+ }
+ label {
+ display: block;
+ margin-top: 15px;
+ margin-bottom: 6px;
+ font-weight: bold;
+ } input {
+ width: 100%;
+ padding: 10px;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ }
+ input[type="submit"] {
+ background: #2563eb;
+ color: white;
+ border: none;
+ margin-top: 25px;
+ cursor: pointer;
+ font-size: 15px;
+ }
+ input[type="submit"]:hover {
+ background: #1d4ed8;
+ }
+ .view {
+ display: block;
+ text-align: center;
+ margin-top: 20px;
+ color: #2563eb;
+ text-decoration: none;
+ }
+ .footer {
+ text-align: center;
+ color: #777;
+ font-size: 13px;
+ margin-top: 30px;
+ }
+ </style>
+</head>
+<body>
+ <div class="header">
+ Ticket Booking System
+ </div>
+ <div class="container">
+ <h2>Book Your Ticket</h2> <form action="ExServlet" method="post">
+ <label>User Name</label>
+ <input type="text" name="userName" placeholder="Enter your name" required>
+ <label>Event Name</label>
+ <input type="text" name="eventName" placeholder="Enter event name" required>
+ <label>Number of Tickets</label>
+ <input type="number" name="numTickets" min="1" placeholder="Enter number 
+of tickets" required>
+ <input type="submit" value="Book Ticket">
+ </form>
+ <a class="view" href="DisplayServlet">
+ View Booked Tickets →
+ </a>
+ <div class="footer">
+ © 2026 Ticket Booking System
+ </div>
+ </div>
+</body>
+</html>
+ExServlet.java
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+@WebServlet("/ExServlet")
+public class ExServlet extends HttpServlet { @Override
+ protected void doPost(HttpServletRequest request,
+ HttpServletResponse response)
+ throws ServletException, IOException {
+ response.setContentType("text/html");
+ PrintWriter out = response.getWriter();
+ String userName = request.getParameter("userName");
+ String eventName = request.getParameter("eventName");
+ int numTickets = Integer.parseInt(
+ request.getParameter("numTickets"));
+ try {
+ Class.forName("com.mysql.cj.jdbc.Driver");
+ Connection con = DriverManager.getConnection(
+ "jdbc:mysql://localhost:3306/ticketdb",
+ "root",
+ "Nila#115"
+ );
+ PreparedStatement ps = con.prepareStatement(
+ "INSERT INTO tickets(user_name, event_name, num_tickets) VALUES (?, ?, ?)"
+ );
+ ps.setString(1, userName);
+ ps.setString(2, eventName);
+ ps.setInt(3, numTickets);
+ int i = ps.executeUpdate();
+ if (i > 0) {
+ out.println("<h2>Ticket Booked Successfully!</h2>");
+ out.println("<a href='DisplayServlet'>View Booked Tickets</a>");
+ }
+ con.close();
+ } catch (Exception e) {
+ out.println("<h3>Error: " + e.getMessage() + "</h3>");
+ }
+ out.close(); }
+}
+DisplayServlet.java
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+@WebServlet("/DisplayServlet")
+public class DisplayServlet extends HttpServlet {
+ @Override
+ protected void doGet(HttpServletRequest request,
+ HttpServletResponse response)
+ throws ServletException, IOException {
+ response.setContentType("text/html");
+ PrintWriter out = response.getWriter();
+ try {
+ Class.forName("com.mysql.cj.jdbc.Driver");
+ Connection con = DriverManager.getConnection(
+ "jdbc:mysql://localhost:3306/ticketdb",
+ "root",
+ "Nila#115"
+ );
+ PreparedStatement ps = con.prepareStatement(
+ "SELECT * FROM tickets"
+ );
+ ResultSet rs = ps.executeQuery(); out.println("<html>");
+ out.println("<head>");
+ out.println("<title>Booked Tickets</title>");
+ out.println("</head>");
+ out.println("<body>");
+ out.println("<h1>Booked Ticket Details</h1>");
+ out.println("<table border='1' cellpadding='10'>");
+ out.println("<tr>");
+ out.println("<th>Ticket ID</th>");
+ out.println("<th>User Name</th>");
+ out.println("<th>Event Name</th>");
+ out.println("<th>Number of Tickets</th>");
+ out.println("<th>Booking Date</th>");
+ out.println("</tr>");
+ while (rs.next()) {
+ out.println("<tr>");
+ out.println("<td>" + rs.getInt("ticket_id") + "</td>");
+ out.println("<td>" + rs.getString("user_name") + "</td>");
+ out.println("<td>" + rs.getString("event_name") + "</td>");
+ out.println("<td>" + rs.getInt("num_tickets") + "</td>");
+ out.println("<td>" + rs.getTimestamp("booking_date") + "</td>");
+ out.println("</tr>");
+ }
+ out.println("</table>");
+ out.println("<br>");
+ out.println("<a href='index.html'>Book Another Ticket</a>");
+ out.println("</body>");
+ out.println("</html>");
+ rs.close();
+ ps.close();
+ con.close();
+ } catch (Exception e) {
+ out.println("<h3>Error: " + e.getMessage() + "</h3>");
+ }
+ out.close();
+ }
+}
+Git hub:
+https://github.com/seshanth007/Internet-programing-
