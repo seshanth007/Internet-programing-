@@ -1,0 +1,83 @@
+Html:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration Form</title>
+</head>
+<body>
+
+<h2>User Registration Form</h2>
+
+<form action="ex8.jsp" method="post">
+
+    User Name:
+    <input type="text" name="username" required>
+    <br><br>
+
+    Password:
+    <input type="password" name="password" required>
+    <br><br>
+
+    Name:
+    <input type="text" name="name" required>
+    <br><br>
+
+    Credit Card Number:
+    <input type="text" name="creditcard" required>
+    <br><br>
+
+    Email:
+    <input type="email" name="email" required>
+    <br><br>
+
+    Phone Number:
+    <input type="text" name="phone" required>
+    <br><br>
+
+    <input type="submit" value="Register">
+
+</form>
+
+</body>
+</html>
+Jsp:
+<%-- 
+    Document   : ex8
+    Created on : 2 Sep, 2026, 10:23:06 AM
+    Author     : Viswanth T
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Details</title>
+</head>
+<body>
+
+<h2>User Registration Details</h2>
+
+<%
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+    String name = request.getParameter("name");
+    String creditcard = request.getParameter("creditcard");
+    String email = request.getParameter("email");
+    String phone = request.getParameter("phone");
+%>
+
+<p><strong>User Name:</strong> <%= username %></p>
+
+<p><strong>Password:</strong> <%= password %></p>
+
+<p><strong>Name:</strong> <%= name %></p>
+
+<p><strong>Credit Card Number:</strong> <%= creditcard %></p>
+
+<p><strong>Email:</strong> <%= email %></p>
+
+<p><strong>Phone Number:</strong> <%= phone %></p>
+
+</body>
+</html>
